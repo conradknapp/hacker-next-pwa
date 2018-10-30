@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-const Layout = ({ title, description, children, showBackButton }) => (
+const Layout = ({ title, description, children, backButton }) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -12,8 +12,8 @@ const Layout = ({ title, description, children, showBackButton }) => (
       <nav>
         <Link href="/">
           <a>
-            {showBackButton && <span className="back">&#x2B05;</span>}
-            <span className="title">Hacker Next</span>
+            {backButton && <span className="back-button">&#x2B05;</span>}
+            <span className="main-title">Hacker Next</span>
           </a>
         </Link>
       </nav>
@@ -23,36 +23,33 @@ const Layout = ({ title, description, children, showBackButton }) => (
 
     <style jsx>{`
       .container {
-        max-width: 808px;
+        max-width: 800px;
         margin: 0 auto;
         background: #f6f6ef;
       }
       nav {
         background: #f60;
-        font-weight: bold;
+        padding: 1em;
+      }
+      nav > * {
+        display: inline-block;
+        color: black;
       }
       nav a {
-        color: #fff;
         text-decoration: none;
       }
-      nav .back {
-        display: inline-block;
-        height: 1em;
-        width: 1em;
-        font-weight: 300;
-        padding: 1em 0 1em 1em;
-        text-align: center;
+      nav .main-title {
+        font-weight: bold;
       }
-      nav .title {
-        color: #fff;
-        display: inline-block;
-        padding: 1em;
+      nav .back-button {
+        font-size: 0.9rem;
+        padding-right: 1em;
       }
     `}</style>
 
     <style jsx global>{`
       body {
-        background: #fff;
+        background: white;
         font-family: Verdana, Geneva, sans-serif;
       }
     `}</style>

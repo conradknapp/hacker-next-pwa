@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
 
           <link rel="manifest" href="/static/manifest.webmanifest" />
 
-          <meta name="theme-color" content="#ff6600" />
+          <meta name="theme-color" content="#f60" />
           <link rel="shortcut icon" href="/static/icons/icon-512x512.png" />
           <link rel="apple-touch-icon" href="/static/icons/icon-512x512.png" />
           <meta name="apple-mobile-web-app-title" content="HackerNext" />

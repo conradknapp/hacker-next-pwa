@@ -18,6 +18,7 @@ class Story extends React.Component {
       );
       story = await req.json();
     } catch (err) {
+      console.log(story);
       console.error(err);
       story = undefined;
     }
@@ -33,7 +34,7 @@ class Story extends React.Component {
     }
 
     return (
-      <Layout title={story.title} showBackButton={true}>
+      <Layout title={story.title} backButton={true}>
         <main>
           <h1>
             <a href={story.url}>{story.title}</a>

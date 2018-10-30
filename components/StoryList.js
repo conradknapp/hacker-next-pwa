@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 const StoryList = ({ stories }) => (
-  <div className="storyList">
+  <div className="story-list">
     {stories.map(story => (
-      <div className="storyItem" key={story.id}>
-        <h2>
+      <div className="story" key={story.id}>
+        <h2 className="story-title">
           <a href={story.url}>{story.title}</a>
         </h2>
-        <div className="storyDetails">
-          <strong>{story.points || 0} points</strong>
+        <div className="story-details">
+          <span>{story.points || 0} points</span>
           <Link href={`/story?id=${story.id}`} prefetch>
             <a>{story.comments_count || 0} comments</a>
           </Link>
@@ -17,34 +17,35 @@ const StoryList = ({ stories }) => (
     ))}
 
     <style jsx>{`
-      .storyList {
+      .story-list {
         padding: 0 1em;
       }
-      .storyItem {
+      .story {
         padding: 1em 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       }
-      h2 {
-        font-size: 1.1rem;
+      .story-title {
+        font-size: 1rem;
         font-weight: 400;
         margin: 0;
         margin-bottom: 0.5em;
       }
-      h2 a {
+      .story-title a {
         color: #333;
         text-decoration: none;
       }
-      h2 a:hover {
+      .story-title a:hover,
+      .story-details a:hover {
         text-decoration: underline;
       }
-      .storyDetails {
-        font-size: 0.9rem;
+      .story-details {
+        font-size: 0.8rem;
         font-weight: bold;
       }
-      .storyDetails strong {
+      .story-details span {
         margin-right: 1em;
       }
-      .storyDetails a {
+      .story-details a {
         color: #6600ff;
         text-decoration: none;
       }

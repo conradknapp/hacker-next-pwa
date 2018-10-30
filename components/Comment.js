@@ -1,43 +1,46 @@
 const Comment = ({ comment }) => (
   <div className="comment">
-    <div className="user">{comment.user}</div>
+    <div className="comment-user">{comment.user}</div>
     <div
-      className="content"
+      className="comment-content"
       dangerouslySetInnerHTML={{ __html: comment.content }}
     />
     {comment.comments && (
-      <div className="responses">
-        {comment.comments.map(response => (
-          <Comment comment={response} />
-        ))}
+      <div className="nested-comments">
+        {comment.comments.map(
+          response =>
+            console.log(response) || (
+              <Comment key={response.id} comment={response} />
+            )
+        )}
       </div>
     )}
     <style jsx>{`
       .comment {
         margin-bottom: 1.5em;
       }
-      .user {
+      .comment-user {
         font-size: 0.9rem;
         font-weight: bold;
         margin-bottom: 0.5em;
       }
-      .content {
+      .comment-content {
         font-size: 0.9rem;
       }
-      .content :global(p) {
+      .comment-content p {
         margin: 0;
         margin-bottom: 0.5em;
         word-wrap: break-word;
       }
-      .content :global(a) {
-        color: #ff6600;
+      .comment-content a {
+        color: #f60;
         text-decoration: underline;
       }
-      .content :global(pre) {
+      .comment-content pre {
         max-width: 100%;
         overflow: scroll;
       }
-      .responses {
+      .nested-comments {
         margin-top: 1em;
         border-left: 1px solid rgba(0, 0, 0, 0.1);
         padding-left: 1em;

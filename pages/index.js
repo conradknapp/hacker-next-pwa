@@ -1,8 +1,8 @@
 import fetch from "isomorphic-fetch";
-import Layout from "../components/Layout";
-import StoryList from "../components/StoryList";
 import Error from "next/error";
 import Link from "next/link";
+import Layout from "../components/Layout";
+import StoryList from "../components/StoryList";
 
 class Index extends React.Component {
   static async getInitialProps({ req, res, query }) {
@@ -20,6 +20,7 @@ class Index extends React.Component {
       stories = [];
     }
 
+    // can test our error-handling by setting stories to null
     return { page, stories };
   }
 
@@ -46,24 +47,23 @@ class Index extends React.Component {
     return (
       <Layout
         title="Hacker Next"
-        description="A sample PWA built with React and Next.JS"
+        description="A Hacker News Clone built with Next.js"
       >
         <StoryList stories={stories} />
 
         <footer>
-          <Link href={`/?page=${page + 1}`} prefetch>
+          <Link href={`/?page=${page + 1}`}>
             <a>Next Page ({page + 1})</a>
           </Link>
         </footer>
 
         <style jsx>{`
           footer {
-            padding: 2em 1em;
+            padding: 1em;
           }
           footer a {
-            font-size: 1.2rem;
             font-weight: bold;
-            color: #ff6600;
+            color: black;
             text-decoration: none;
           }
         `}</style>

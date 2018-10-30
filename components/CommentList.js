@@ -1,9 +1,9 @@
 import Comment from "./Comment";
 
 export default ({ comments }) => (
-  <div>
+  <React.Fragment>
     {comments.map(response => (
       <Comment key={response.id} comment={response} />
     ))}
-  </div>
+  </React.Fragment>
 );
