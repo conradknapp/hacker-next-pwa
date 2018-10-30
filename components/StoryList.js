@@ -8,9 +8,9 @@ const StoryList = ({ stories }) => (
           <a href={story.url}>{story.title}</a>
         </h2>
         <div className="storyDetails">
-          <strong>{story.points} points</strong>
+          <strong>{story.points || 0} points</strong>
           <Link href={`/story?id=${story.id}`} prefetch>
-            <a>{story.comments_count} comments</a>
+            <a>{story.comments_count || 0} comments</a>
           </Link>
         </div>
       </div>
@@ -45,7 +45,7 @@ const StoryList = ({ stories }) => (
         margin-right: 1em;
       }
       .storyDetails a {
-        color: #ff6600;
+        color: #6600ff;
         text-decoration: none;
       }
     `}</style>

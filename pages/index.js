@@ -28,7 +28,7 @@ class Index extends React.Component {
       navigator.serviceWorker
         .register("/service-worker.js")
         .then(registration => {
-          console.log("service worker registration successful");
+          console.log("service worker registration successful", registration);
         })
         .catch(err => {
           console.warn("service worker registration failed", err.message);
@@ -39,12 +39,14 @@ class Index extends React.Component {
   render() {
     const { stories, page } = this.props;
 
-    if (!stories) return <Error statusCode={503} />;
+    if (!stories) {
+      return <Error statusCode={503} />;
+    }
 
     return (
       <Layout
-        title={"Hacker News Reader"}
-        description={"A sample PWA built with React and Next.JS"}
+        title="Hacker Next"
+        description="A sample PWA built with React and Next.JS"
       >
         <StoryList stories={stories} />
 
@@ -59,7 +61,7 @@ class Index extends React.Component {
             padding: 2em 1em;
           }
           footer a {
-            font-size: 1.2rrem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #ff6600;
             text-decoration: none;

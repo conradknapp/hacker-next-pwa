@@ -1,7 +1,7 @@
 import "isomorphic-fetch";
-import URL from "url";
+// import URL from "url";
 import Layout from "../components/Layout";
-import CommentTree from "../components/CommentTree";
+import CommentList from "../components/CommentList";
 import Error from "next/error";
 
 class Story extends React.Component {
@@ -11,13 +11,14 @@ class Story extends React.Component {
     try {
       const storyId = query.id;
 
-      if (!/[0-9]+/.test(storyId)) throw "Story ID must be numeric";
+      // if (!/[0-9]+/.test(storyId)) throw "Story ID must be numeric";
 
       const req = await fetch(
         `https://node-hnapi.herokuapp.com/item/${storyId}`
       );
       story = await req.json();
-    } catch (e) {
+    } catch (err) {
+      console.error(err);
       story = undefined;
     }
 
@@ -27,7 +28,9 @@ class Story extends React.Component {
   render() {
     const { story } = this.props;
 
-    if (!story) return <Error statusCode={503} />;
+    if (!story) {
+      return <Error />;
+    }
 
     return (
       <Layout title={story.title} showBackButton={true}>
@@ -41,10 +44,10 @@ class Story extends React.Component {
             <strong>{story.time_ago}</strong>
           </div>
 
-          {story.comments.length ? (
-            <CommentTree comments={story.comments} />
+          {story.comments.length > 0 ? (
+            <CommentList comments={story.comments} />
           ) : (
-            <div>There are no comments</div>
+            <div>No comments for this story</div>
           )}
         </main>
 

@@ -1,7 +1,7 @@
 {
   "name": "Hacker Next",
   "short_name": "hacker-next",
-  "theme_color": "#ff6600",
+  "theme_color": "#f60",
   "background_color": "#f0f",
   "display": "standalone",
   "scope": "/",

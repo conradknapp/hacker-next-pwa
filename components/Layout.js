@@ -6,29 +6,14 @@ const Layout = ({ title, description, children, showBackButton }) => (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta
-        lang="en-US"
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      />
-
-      <link rel="manifest" href="/static/manifest.webmanifest" />
-
-      <meta name="theme-color" content="#ff6600" />
-      <link rel="shortcut icon" href="/static/icons/icon-512x512.png" />
-      <link rel="apple-touch-icon" href="/static/icons/icon-512x512.png" />
-      <meta name="apple-mobile-web-app-title" content="HackerNext" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="mobile-web-app-capable" content="yes" />
     </Head>
 
     <div className="container">
       <nav>
         <Link href="/">
           <a>
-            {showBackButton && <span className="back">&lt;</span>}
-            <span className="title">Hacker News</span>
+            {showBackButton && <span className="back">&#x2B05;</span>}
+            <span className="title">Hacker Next</span>
           </a>
         </Link>
       </nav>
@@ -59,6 +44,7 @@ const Layout = ({ title, description, children, showBackButton }) => (
         text-align: center;
       }
       nav .title {
+        color: #fff;
         display: inline-block;
         padding: 1em;
       }
